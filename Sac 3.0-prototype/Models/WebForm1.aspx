@@ -6,8 +6,8 @@
 <head runat="server">
     <title>Bible Verse</title>
 </head>
-<body background="~/Content/Images/" >
-    
+<body>
+    <div style="background-image: url('/Content/bg1.jpg');"></div>
     <form id="form1" runat="server">
         <div>
             <asp:Button ID="retrieve" runat="server" Text="Retrieve" OnClick="retrieve_Click" />
