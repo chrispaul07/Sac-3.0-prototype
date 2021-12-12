@@ -13,5 +13,11 @@ namespace Sac_3._0_prototype.Models
         {
 
         }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+    
