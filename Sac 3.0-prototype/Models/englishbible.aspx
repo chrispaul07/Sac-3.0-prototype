@@ -5,11 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-</head>
+
     <style>
-       .all_btn{display: inline-block; margin-left: 1200px; font-size:0px; }
-       .text{display: inline-block; margin-left: 1200px; }
+       .all_btn{display: inline-block; margin-left: 1200px; font-size:0px;}
+       .text{display: inline-block; margin-left: 1200px;}
     </style>
+</head>
 <body style="height: 651px; width: 1356px; color: #FFFFFF; position: relative;background-color: #000000;">
     <form id="form1" runat="server">
     <div>
