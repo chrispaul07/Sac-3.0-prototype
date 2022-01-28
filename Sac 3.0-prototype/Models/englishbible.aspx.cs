@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using MySql.Data.MySqlClient;
+using System.Threading.Tasks;
+using MySqlConnector;
 
 namespace Sac_3._0_prototype.Models
 {
@@ -29,7 +30,7 @@ namespace Sac_3._0_prototype.Models
                 string cname = arr[0];
                 int cnumber = int.Parse(arr[1]);
                 int vnumber = int.Parse(arr[2]);
-                string mycon = "server =localhost; Uid=root; password =Chris123# ; persistsecurityinfo = True; database =englishbible; SslMode = none";
+                string mycon = "server =sacv3-prototype.mysql.database.azure.com; Uid=user007; password =1Chris@p! ; persistsecurityinfo = True; database =englishbible; SslMode = none";
                 MySqlConnection con = new MySqlConnection(mycon);
                 MySqlCommand cmd = null;
                 string result = null;
@@ -68,4 +69,50 @@ namespace Sac_3._0_prototype.Models
         }
     }
 }
-    
+
+
+namespace AzureMySqlExample
+{
+    class MySqlRead
+    {
+        static async Task Main(string[] args)
+        {
+            var builder = new MySqlConnectionStringBuilder
+            {
+                Server = "YOUR-SERVER.mysql.database.azure.com",
+                Database = "YOUR-DATABASE",
+                UserID = "USER@YOUR-SERVER",
+                Password = "PASSWORD",
+                SslMode = MySqlSslMode.Required,
+            };
+
+            using (var conn = new MySqlConnection(builder.ConnectionString))
+            {
+                Console.WriteLine("Opening connection");
+                await conn.OpenAsync();
+
+                using (var command = conn.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM inventory;";
+
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            Console.WriteLine(string.Format(
+                                "Reading from table=({0}, {1}, {2})",
+                                reader.GetInt32(0),
+                                reader.GetString(1),
+                                reader.GetInt32(2)));
+                        }
+                    }
+                }
+
+                Console.WriteLine("Closing connection");
+            }
+
+            Console.WriteLine("Press RETURN to exit");
+            Console.ReadLine();
+        }
+    }
+}

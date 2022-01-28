@@ -27,7 +27,7 @@ namespace Sac_3._0_prototype.Models
             try
             {
                 int vnumber = int.Parse(snum);
-                string mycon = "server =localhost; Uid=root; password =Chris123# ; persistsecurityinfo = True; database =tamilsong; SslMode = none";
+                string mycon = "server =sacv3-prototype.mysql.database.azure.com; Uid=user007; password =1Chris@p! ; persistsecurityinfo = True; database =tamilsong; SslMode = none";
                 MySqlConnection con = new MySqlConnection(mycon);
                 MySqlCommand cmd = null;
                 string result = null;
@@ -63,7 +63,7 @@ namespace Sac_3._0_prototype.Models
             
             try
             {
-                string mycon = "server =localhost; Uid=root; password =Chris123# ; persistsecurityinfo = True; database =tamilsong; SslMode = none ";
+                string mycon = "server =sacv3-prototype.mysql.database.azure.com; Uid=user007; password =1Chris@p! ; persistsecurityinfo = True; database =tamilsong; SslMode = none";
                 MySqlConnection con = new MySqlConnection(mycon);
                 MySqlCommand cmd = null;
                 string result = null;
@@ -97,7 +97,7 @@ namespace Sac_3._0_prototype.Models
         {
             try
             {
-                string mycon = "server =localhost; Uid=root; password =Chris123# ; persistsecurityinfo = True; database =tamilsong; SslMode = none";
+                string mycon = "server =sacv3-prototype.mysql.database.azure.com; Uid=user007; password =1Chris@p! ; persistsecurityinfo = True; database =tamilsong; SslMode = none";
                 MySqlConnection con = new MySqlConnection(mycon);
                 MySqlCommand cmd = null;
                 string result = null;
@@ -131,7 +131,7 @@ namespace Sac_3._0_prototype.Models
         {
             try
             {
-                string mycon = "server =localhost; Uid=root; password =Chris123# ; persistsecurityinfo = True; database =tamilsong; SslMode = none";
+                string mycon = "server =sacv3-prototype.mysql.database.azure.com; Uid=user007; password =1Chris@p! ; persistsecurityinfo = True; database =tamilsong; SslMode = none";
                 MySqlConnection con = new MySqlConnection(mycon);
                 MySqlCommand cmd = null;
                 string result = null;
