@@ -1,8 +1,6 @@
 # Sac-3.0-prototype
 SAC is a software, can be used in all the churches. This software specifically done for medium and large size churches. This can be used to give some kind of enthusiastic movements to the members in the churches, and it will improve the status of the church and the church will get the name as Computerized Church. During the song session this will give the pleasure to the members in the church.
 
-About.
-SCRIPTURE AND CANTICLE 3.0 - In English
 Bible
 This module contains entire bible to show. In this module we have two different forms:
 1. Tamil Bible
