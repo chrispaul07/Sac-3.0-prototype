@@ -40,18 +40,7 @@
             <p align="center">&nbsp;</p>
             <p align="center">&nbsp;</p>
             <p align="center">&nbsp;</p>
-            <p align="center">
-                &nbsp;</p>
-            <p align="center">
-                &nbsp;</p>
-            <p>
-                &nbsp;</p>
-            <p align="center">
-                &nbsp;</p>
-            <p align="center">
-                &nbsp;</p>
-            <p align="center">
-                &nbsp;</p>
+           
     </div> 
         <p align="left">
                 
