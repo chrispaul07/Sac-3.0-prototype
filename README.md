@@ -1,5 +1,6 @@
 # Sac-3.0-prototype
 SAC is a software, can be used in all the churches. This software specifically done for medium and large size churches. This can be used to give some kind of enthusiastic movements to the members in the churches, and it will improve the status of the church and the church will get the name as Computerized Church. During the song session this will give the pleasure to the members in the church.
+
 About.
 SCRIPTURE AND CANTICLE 3.0 - In English
 Bible
@@ -19,6 +20,7 @@ This Song Index shows it shows the entire song database in the application with 
 SCRIPTURE AND CANTICLE 3.0 - தமிழில்
 வேதாகமம்
 இந்த பகுதியானது முழுமையான வேதாகமத்தைக் கொண்டது. இந்த பகுதியில் இரண்டு விதமான திரைகளை கொண்டது.
+
 1.வேதாகமம் - தமிழில்
 2.வேதாகமம் - ஆங்கிலத்தில்
 
