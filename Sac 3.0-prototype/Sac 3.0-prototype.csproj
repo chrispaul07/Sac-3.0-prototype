@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort>44341</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -171,9 +171,29 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Data\ApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tamilsong.aspx.cs">
+      <DependentUpon>tamilsong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Models\tamilsong.aspx.designer.cs">
+      <DependentUpon>tamilsong.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\englishsong.aspx.cs">
+      <DependentUpon>englishsong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Models\englishsong.aspx.designer.cs">
+      <DependentUpon>englishsong.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tamilbible.aspx.cs">
+      <DependentUpon>tamilbible.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Models\tamilbible.aspx.designer.cs">
+      <DependentUpon>tamilbible.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\englishbible.aspx.cs">
       <DependentUpon>englishbible.aspx</DependentUpon>
@@ -181,13 +201,6 @@
     </Compile>
     <Compile Include="Models\englishbible.aspx.designer.cs">
       <DependentUpon>englishbible.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Models\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -200,8 +213,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\tamilsong.aspx" />
+    <Content Include="Models\englishsong.aspx" />
+    <Content Include="Models\tamilbible.aspx" />
     <Content Include="Models\englishbible.aspx" />
-    <Content Include="Models\WebForm1.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

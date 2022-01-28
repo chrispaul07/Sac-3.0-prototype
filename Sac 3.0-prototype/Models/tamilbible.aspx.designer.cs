@@ -11,7 +11,7 @@ namespace Sac_3._0_prototype.Models
 {
 
 
-    public partial class englishbible
+    public partial class tamilbible
     {
 
         /// <summary>

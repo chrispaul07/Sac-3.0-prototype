@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="englishbible.aspx.cs" Inherits="Sac_3._0_prototype.Models.englishbible" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="tamilsong.aspx.cs" Inherits="Sac_3._0_prototype.Models.tamilsong" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Bible Verse</title>
+    <title>பாடல்கள்</title>
     <script>    
   function funfordefautenterkey1(btn, event) {    
       if (document.all) {    
@@ -26,11 +26,11 @@
 <body scroll="no" style="overflow: hidden; height: 651px; width: 1356px; color: #000000; position: relative;background-color: #CCCCCC; ">
     <form id="form1" runat="server">
     <div>
-            <h2 align="center">Bible Verse</h2>
+            <h2 align="center">பாடல்கள்</h2>
             <hr />
             <asp:Label ID="header" runat="server" Font-Bold="true" Font-Size="XX-Large" ></asp:Label> <br />
+             <p align="center">&nbsp;</p>
             <asp:Label ID="message" runat="server" Font-Bold="true" Font-Size="XX-Large" ></asp:Label> 
-            <p align="center">&nbsp;</p>
             <p align="center">&nbsp;</p>
             <p align="center">&nbsp;</p>
             <p align="center">&nbsp;</p>
@@ -58,16 +58,12 @@
             </p>
         <div class="text">
             <asp:TextBox ID="TextBox" runat="server" ></asp:TextBox>
-            <asp:Button ID="Button7" runat="server" Text="Submit1" OnClick="ButtonIN_Click" ></asp:Button>
+            <asp:Button ID="Button4" runat="server" Text="Submit1" OnClick="ButtonIN_Click" ></asp:Button>
         </div>
         <div class="all_btn" >
-            <asp:Button ID="Button1" runat="server" Text="+" />
-            <asp:Button ID="Button2" runat="server" Text="-" />
-            <asp:Button ID="Button3" runat="server" Text="*" />
-            <asp:Button ID="Button4" runat="server" Text="/" />
-            <asp:Button ID="Button5" runat="server" Text="[" />
-            <asp:Button ID="Button6" runat="server" Text="]" />
-
+            <asp:Button ID="Button1" runat="server" Text="1"  OnClick="ButtonIN_Click1"/>
+            <asp:Button ID="Button2" runat="server" Text="2" OnClick="ButtonIN_Click2" />
+            <asp:Button ID="Button3" runat="server" Text="3" OnClick="ButtonIN_Click3" />
         </div>
            
            

@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="englishbible.aspx.cs" Inherits="Sac_3._0_prototype.Models.englishbible" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="tamilbible.aspx.cs" Inherits="Sac_3._0_prototype.Models.tamilbible" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Bible Verse</title>
+    <title>வேத வசனம்</title>
     <script>    
   function funfordefautenterkey1(btn, event) {    
       if (document.all) {    
@@ -26,7 +26,7 @@
 <body scroll="no" style="overflow: hidden; height: 651px; width: 1356px; color: #000000; position: relative;background-color: #CCCCCC; ">
     <form id="form1" runat="server">
     <div>
-            <h2 align="center">Bible Verse</h2>
+            <h2 align="center">வேத வசனம்</h2>
             <hr />
             <asp:Label ID="header" runat="server" Font-Bold="true" Font-Size="XX-Large" ></asp:Label> <br />
             <asp:Label ID="message" runat="server" Font-Bold="true" Font-Size="XX-Large" ></asp:Label> 

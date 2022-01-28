@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace Sac_3._0_prototype.Models
 {
-    public partial class englishbible : System.Web.UI.Page
+    public partial class tamilbible : System.Web.UI.Page
     {
 
         protected void Page_Load(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace Sac_3._0_prototype.Models
                 string cname = arr[0];
                 int cnumber = int.Parse(arr[1]);
                 int vnumber = int.Parse(arr[2]);
-                string mycon = "server =localhost; Uid=root; password =Chris123# ; persistsecurityinfo = True; database =englishbible; SslMode = none";
+                string mycon = "server =localhost; Uid=root; password =Chris123# ; persistsecurityinfo = True; database =tamilbible; SslMode = none";
                 MySqlConnection con = new MySqlConnection(mycon);
                 MySqlCommand cmd = null;
                 string result = null;
@@ -56,8 +56,6 @@ namespace Sac_3._0_prototype.Models
             {
                 Response.Write("<script>alert('" + ex.Message + "')</script>");
             }
-            { }
-
         }
 
         protected void ButtonIN_Click(object sender, EventArgs e)
