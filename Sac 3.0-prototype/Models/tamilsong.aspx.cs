@@ -58,7 +58,7 @@ namespace Sac_3._0_prototype.Models
 
         }
 
-        protected void Nextstanza()
+        protected void Nextstanza(int a)
         {
             
             try
@@ -71,9 +71,10 @@ namespace Sac_3._0_prototype.Models
                 string result1 = null;
                 try
                 {
+                    string query1 = "Select para from song where songnumber=1 and stanzanumber='" + a + "'";
                     con.Open();
                     cmd = new MySqlCommand("Select songname from songname where songnumber=1", con);
-                    cmdd = new MySqlCommand("Select para from song where songnumber=1 and stanzanumber=1",con);
+                    cmdd = new MySqlCommand(query1, con);
                     result = (string)cmd.ExecuteScalar();
                     result1 = (string)cmdd.ExecuteScalar();
                     header.Text = result;
@@ -93,73 +94,7 @@ namespace Sac_3._0_prototype.Models
             }
         }
 
-        protected void Nextstanza1()
-        {
-            try
-            {
-                string mycon = "server =sacv3-prototype.mysql.database.azure.com; Uid=user007; password =1Chris@p! ; persistsecurityinfo = True; database =tamilsong; SslMode = none";
-                MySqlConnection con = new MySqlConnection(mycon);
-                MySqlCommand cmd = null;
-                string result = null;
-                MySqlCommand cmdd = null;
-                string result1 = null;
-                try
-                {
-                    con.Open();
-                    cmd = new MySqlCommand("Select songname from songname where songnumber=1", con);
-                    cmdd = new MySqlCommand("Select para from song where songnumber=1 and stanzanumber=2",con);
-                    result = (string)cmd.ExecuteScalar();
-                    result1 = (string)cmdd.ExecuteScalar();
-                    header.Text = result;
-                    var outputHtml = result1.Replace("\r\n", "<br />").Replace("\n", "<br />").Replace("\r", "<br />");
-                    message.Text = outputHtml;
-                    con.Close();
-                }
-                catch (Exception ex)
-                {
-                    Response.Write("<script>alert('" + ex.Message + "')</script>");
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "')</script>");
-            }
-        }
-
-        protected void Nextstanza2()
-        {
-            try
-            {
-                string mycon = "server =sacv3-prototype.mysql.database.azure.com; Uid=user007; password =1Chris@p! ; persistsecurityinfo = True; database =tamilsong; SslMode = none";
-                MySqlConnection con = new MySqlConnection(mycon);
-                MySqlCommand cmd = null;
-                string result = null;
-                MySqlCommand cmdd = null;
-                string result1 = null;
-                try
-                {
-                    con.Open();
-                    cmd = new MySqlCommand("Select songname from songname where songnumber=1", con);
-                    cmdd = new MySqlCommand("Select para from song where songnumber=1 and stanzanumber=3",con);
-                    result = (string)cmd.ExecuteScalar();
-                    result1 = (string)cmdd.ExecuteScalar();
-                    header.Text = result;
-                    var outputHtml = result1.Replace("\r\n", "<br />").Replace("\n", "<br />").Replace("\r", "<br />");
-                    message.Text = outputHtml;
-                    con.Close();
-                }
-                catch (Exception ex)
-                {
-                    Response.Write("<script>alert('" + ex.Message + "')</script>");
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + "')</script>");
-            }
-        }
+     
         protected void ButtonIN_Click(object sender, EventArgs e)
         {
             string songnum = TextBox.Text;
@@ -167,15 +102,15 @@ namespace Sac_3._0_prototype.Models
         }
         protected void ButtonIN_Click1(object sender, EventArgs e)
         {
-            Nextstanza();
+            Nextstanza(1);
         }
         protected void ButtonIN_Click2(object sender, EventArgs e)
         {
-            Nextstanza1();
+            Nextstanza(2);
         }
         protected void ButtonIN_Click3(object sender, EventArgs e)
         {
-            Nextstanza2();
+            Nextstanza(3);
         }
 
     }

@@ -38,8 +38,9 @@ namespace Sac_3._0_prototype.Models
                 string result1 = null;
                 try
                 {
+                    string query1 = "Select verse from bible where bookid=1 and chapternumber='" + cnumber + "'and versenumber='" + vnumber + "'";
                     cmd = new MySqlCommand("Select bookname from books where bookid=1", con);
-                    cmdd = new MySqlCommand("Select verse from bible where bookid=1 and chapternumber=1 and versenumber=1", con);
+                    cmdd = new MySqlCommand(query1, con);
                     con.Open();
                     result = (string)cmd.ExecuteScalar();
                     result1 = (string)cmdd.ExecuteScalar();
