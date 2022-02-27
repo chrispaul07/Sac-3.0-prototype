@@ -29,18 +29,32 @@ namespace Sac_3._0_prototype.Models
                 string cname = arr[0];
                 int cnumber = int.Parse(arr[1]);
                 int vnumber = int.Parse(arr[2]);
-                string mycon = "server =sacv3-prototype.mysql.database.azure.com; Uid=user007; password =1Chris@p! ; persistsecurityinfo = True; database =tamilbible; SslMode = none";
+                string mycon = "server =localhost; Uid=root; password =Chris123# ; persistsecurityinfo = True; database =tamilbible; SslMode = none";
                 MySqlConnection con = new MySqlConnection(mycon);
                 MySqlCommand cmd = null;
+                MySqlCommand currentbookid = null;
                 string result = null;
                 MySqlCommand cmdd = null;
                 string result1 = null;
+                int bnumber = 0;
                 try
                 {
-                    string query1 = "Select verse from bible where bookid=1 and chapternumber='" + cnumber + "'and versenumber='" + vnumber + "'";
-                    cmd = new MySqlCommand("Select bookname from books where bookid=1", con);
-                    cmdd = new MySqlCommand(query1, con);
                     con.Open();
+                    string query = "Select bookid from books where bookshortname ='" + cname + "'";
+                    currentbookid = new MySqlCommand(query,con);
+                    Object obj = currentbookid.ExecuteScalar();
+                    if (obj != null)
+                    {
+                        bnumber = Convert.ToInt32(obj.ToString());
+                    }
+                    else
+                    {
+                        throw (new Exception("Book not found : "+ cname));
+                    }
+                    
+                    string query1 = "Select verse from bible where bookid="+ bnumber + " and chapternumber=" + cnumber + " and versenumber=" + vnumber;
+                    cmd = new MySqlCommand("Select bookname from books where bookid="+ bnumber, con);
+                    cmdd = new MySqlCommand(query1, con);
                     result = (string)cmd.ExecuteScalar();
                     result1 = (string)cmdd.ExecuteScalar();
                     header.Text = result + ":" + cnumber + ":" + vnumber;

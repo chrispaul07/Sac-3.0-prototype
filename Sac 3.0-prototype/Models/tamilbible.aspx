@@ -16,38 +16,23 @@
      }                    
     </script> 
     <style>
-       .all_btn{display: inline-block; margin-left: 1200px; font-size:0px;}
-       .text{display: inline-block; margin-left: 1200px;}
+       .all_btn{display: inline-block;  font-size:0px;}
+       .text{display: inline-block;}
        .textAlign{
                 text-align:center;
             }
     </style>
 </head>
-<body scroll="no" style="overflow: hidden; height: 651px; width: 1356px; color: #000000; position: relative;background-color: #CCCCCC; ">
+<body scroll="no" style=" height: 651px; width: 1356px; color: #000000; position: relative;background-color: #CCCCCC; ">
     <form id="form1" runat="server">
-    <div>
-            <h2 align="center">வேத வசனம்</h2>
-            <hr />
-            <asp:Label ID="header" runat="server" Font-Bold="true" Font-Size="XX-Large" ></asp:Label> <br />
-            <asp:Label ID="message" runat="server" Font-Bold="true" Font-Size="XX-Large" ></asp:Label> 
-            <p align="center">&nbsp;</p>
-            <p align="center">&nbsp;</p>
-            <p align="center">&nbsp;</p>
-            <p align="center">&nbsp;</p>
-            <p align="center">&nbsp;</p>
-            <p align="center">&nbsp;</p>
-            <p align="center">&nbsp;</p>
-            <p align="center">&nbsp;</p>
-            <p align="center">&nbsp;</p>
-            <p align="center">&nbsp;</p>
-           
-    </div> 
-        <p align="left">
-                
-            </p>
-        <div class="text">
-            <asp:TextBox ID="TextBox" runat="server" ></asp:TextBox>
-            <asp:Button ID="Button7" runat="server" Text="Submit1" OnClick="ButtonIN_Click" ></asp:Button>
+    <div>  
+        <table width="100%">
+            <tr>
+                <td width="25%">&nbsp;</td>
+                <td width="50%"><h2 align="center">வேத வசனம்</h2></td>
+                <td width="25%">
+                    <asp:TextBox ID="TextBox" runat="server" ></asp:TextBox>
+                    <asp:Button ID="Button7" runat="server" Text="Get Verse" OnClick="ButtonIN_Click" ></asp:Button>
         </div>
         <div class="all_btn" >
             <asp:Button ID="Button1" runat="server" Text="+" />
@@ -58,6 +43,22 @@
             <asp:Button ID="Button6" runat="server" Text="]" />
 
         </div>
+                </td>
+            </tr>
+        </table>
+            
+            <hr />
+        
+
+            <asp:Label ID="header" runat="server" Font-Bold="true" Font-Size="XX-Large" ></asp:Label> <br />
+            <asp:Label ID="message" runat="server" Font-Bold="true" Font-Size="XX-Large"  Height="200"></asp:Label> 
+            
+           
+    </div> 
+        <p align="left">
+                
+            </p>
+        
            
            
     </form>

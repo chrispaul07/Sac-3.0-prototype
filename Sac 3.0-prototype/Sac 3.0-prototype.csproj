@@ -183,6 +183,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SQLServerSettings.cs" />
     <Compile Include="Models\tamilsong.aspx.cs">
       <DependentUpon>tamilsong.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
