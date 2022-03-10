@@ -1,14 +1,32 @@
-<mxfile host="app.diagrams.net" modified="2022-03-06T06:20:32.416Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36" etag="lg2PA8G5at8_A-4TIHH-" version="16.6.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-03-10T13:06:04.912Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36" etag="-2VXi8Cu5ivH28UBYxYF" version="16.6.6" type="github">
   <diagram id="-5l1G-GI6gvGcGKiTMmH" name="Page-1">
     <mxGraphModel dx="1038" dy="571" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="EK3RWtDszpUiXcxNHKD7-1" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
-          <mxGeometry x="90" y="240" width="30" height="60" as="geometry" />
+        <mxCell id="EK3RWtDszpUiXcxNHKD7-1" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="1" vertex="1">
+          <mxGeometry x="60" y="275" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="EK3RWtDszpUiXcxNHKD7-2" value="Use Case" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="344" y="30" width="140" height="70" as="geometry" />
+        <mxCell id="EK3RWtDszpUiXcxNHKD7-2" value="Display Bible Verse" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="164" y="160" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YEuSQ8GJd0XASIDwMLyI-1" value="Display Songs&lt;span style=&quot;color: rgba(0 , 0 , 0 , 0) ; font-family: monospace ; font-size: 0px&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22Display%20Bible%20Verse%22%20style%3D%22ellipse%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22160%22%20y%3D%2230%22%20width%3D%22140%22%20height%3D%2270%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="164" y="390" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YEuSQ8GJd0XASIDwMLyI-2" value="Azure Database for MySQL flexible server" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="348" y="270" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YEuSQ8GJd0XASIDwMLyI-3" value="Azure App Service" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="348" y="160" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YEuSQ8GJd0XASIDwMLyI-4" value="Azure Database for MySQL flexible server" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="348" y="390" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YEuSQ8GJd0XASIDwMLyI-5" value="Billing and management" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="534" y="160" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="YEuSQ8GJd0XASIDwMLyI-14" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="754" y="210" width="30" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
