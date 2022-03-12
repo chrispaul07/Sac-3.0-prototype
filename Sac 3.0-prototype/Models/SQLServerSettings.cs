@@ -7,7 +7,7 @@ namespace Sac_3._0_prototype.Models
 	{
 		public SQLServerSettings()
 		{ }
-		public static String getConnectionString(String dbName)
+		public static String GetConnectionString(String dbName)
 		{
 			String serverName = ConfigurationManager.AppSettings["host"];
 			String userName = ConfigurationManager.AppSettings["userid"];
