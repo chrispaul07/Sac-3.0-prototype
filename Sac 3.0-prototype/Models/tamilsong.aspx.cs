@@ -27,15 +27,14 @@ namespace Sac_3._0_prototype.Models
         {
             txt.Attributes.Add("onkeydown", "funfordefautenterkey1(" + defaultButton.ClientID + ",event)");
         }
-        protected void Songfunction(string snum)
+        protected void Songfunction(string snum, string stnum)
         {
-            songNumber = int.Parse(snum);
             //SQLServerSettings sss = new SQLServerSettings(dbName);
             //string connectionString = sss.connectionString;
             MySqlConnection con;
-            MySqlCommand query1, query2, songcheck, stanzacheck;
+            MySqlCommand songname, songcontent, songcheck, stanzacheck;
             string titlename;
-            string songcontent;
+            string content;
             try
             {
                 con = new MySqlConnection(SQLServerSettings.GetConnectionString(dbName));
@@ -49,32 +48,43 @@ namespace Sac_3._0_prototype.Models
             try
             {
                 con.Open();
-                stanzaNumber = 1;
-                songcheck = new MySqlCommand("Select songnumber from " + titleTable + " where songnumber=" + songNumber, con);
-                stanzacheck = new MySqlCommand("Select stanzanumber from " + contentTable + " where songnumber=" + songNumber + " and stanzanumber=" + stanzaNumber, con);
-                query1 = new MySqlCommand("Select songname from " + titleTable +" where songnumber=" + songNumber , con);
-                query2 = new MySqlCommand("Select para from " + contentTable + " where songnumber=" + songNumber + " and stanzanumber="+stanzaNumber, con);
-                object obj1 = songcheck.ExecuteScalar();
-                
-                int otitlename = Convert.ToInt32(obj1);
-                int osongcontent = (int)stanzacheck.ExecuteScalar();
-                if (otitlename == songNumber && osongcontent == stanzaNumber)
+                string songcheckquery = "Select songnumber from " + titleTable + " where songnumber=" + snum;
+                songcheck = new MySqlCommand(songcheckquery, con);
+                object songcheckobject = songcheck.ExecuteScalar();
+                if (songcheckobject != null)
                 {
-                    titlename = (string)query1.ExecuteScalar();
-                    songcontent = (string)query2.ExecuteScalar();
-                    header.Text = titlename;
-                    var outputHtml = songcontent.Replace("\r\n", "<br />").Replace("\n", "<br />").Replace("\r", "<br />");
-                    message.Text = outputHtml;
+                    songNumber = int.Parse(snum);
                 }
                 else
                 {
                     throw new Exception("Song not found : ");
                 }
-                con.Close();
+                string stanzacheckquery = "Select stanzanumber from " + contentTable + " where songnumber=" + songNumber + " and stanzanumber=" + stnum;
+                stanzacheck = new MySqlCommand(stanzacheckquery, con);
+                object stanzacheckobject = stanzacheck.ExecuteScalar();
+                if (stanzacheckobject != null)
+                {
+                    stanzaNumber = int.Parse(stnum);
+                }
+                else
+                {
+                    throw new Exception("Stanza not found : ");
+                }
+                string songnamequery = "Select songname from " + titleTable + " where songnumber=" + songNumber;
+                songname = new MySqlCommand(songnamequery, con);
+                object songnameobject = songname.ExecuteScalar();
+                titlename = songnameobject.ToString();
+                string songcontentquery = "Select para from " + contentTable + " where songnumber=" + songNumber + " and stanzanumber=" + stanzaNumber;
+                songcontent = new MySqlCommand(songcontentquery, con);
+                object songcontentobject = songcontent.ExecuteScalar();
+                content = songcontentobject.ToString();
+                header.Text = titlename;
+                var outputHtml = content.Replace("\r\n", "<br />").Replace("\n", "<br />").Replace("\r", "<br />");
+                message.Text = outputHtml;
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('Exception in Selecting Song : '" + ex.Message + "')</script>");
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
                 con.Close();
             }
             
@@ -83,53 +93,16 @@ namespace Sac_3._0_prototype.Models
 
         protected void Nextstanza(int stznumber)
         {
-            MySqlConnection con;
-            MySqlCommand titlenamequery;
-            string titlename;
-            MySqlCommand songcontentquery;
-            string songcontent;
-
-            try
-            {
-                con = new MySqlConnection(SQLServerSettings.GetConnectionString(dbName));
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert(SQL Connection Failed : '" + ex.Message + "')</script>");
-                return;
-            }
-                try
-                {
-                    con.Open();
-                    stanzaNumber = stznumber;
-                    titlenamequery = new MySqlCommand("Select " + titleTable + " from songname where songnumber=" + songNumber, con);
-                    songcontentquery = new MySqlCommand("Select para from " + contentTable + " where songnumber=" + songNumber + " and stanzanumber=" + stanzaNumber, con);
-                    if (songcontentquery != null)
-                    {
-                        titlename = (string)titlenamequery.ExecuteScalar();
-                        songcontent = (string)songcontentquery.ExecuteScalar();
-                        header.Text = titlename;
-                        var outputHtml = songcontent.Replace("\r\n", "<br />").Replace("\n", "<br />").Replace("\r", "<br />");
-                        message.Text = outputHtml;
-                }
-                    else
-                    {
-                        throw (new Exception("Stanza "+stanzaNumber+" not found : "));
-                    }
-                    con.Close();
-            }
-                catch (Exception ex)
-                {
-                    Response.Write("<script>alert('" + ex.Message + "')</script>");
-                    con.Close();
-                }
+            stanzaNumber = stznumber;
+            Songfunction(songNumber.ToString(), stanzaNumber.ToString());
             }
 
      
         protected void ButtonIN_Click(object sender, EventArgs e)
         {
             string songnum = TextBox.Text;
-            Songfunction(songnum);
+            string stanzanum = "1";
+            Songfunction(songnum, stanzanum);
         }
         protected void ButtonIN_Click1(object sender, EventArgs e)
         {

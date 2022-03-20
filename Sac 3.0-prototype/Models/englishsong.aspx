@@ -11,7 +11,7 @@
           if (event.keyCode == 13) {    
               event.returnValue = false;    
               event.cancel = true;    
-              btn.click();    
+              btn.click();
           }    
      }                    
     </script> 

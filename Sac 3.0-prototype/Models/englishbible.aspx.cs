@@ -12,6 +12,11 @@ namespace Sac_3._0_prototype.Models
 {
     public partial class englishbible : System.Web.UI.Page
     {
+        readonly String dbName = "englishbible";
+        readonly String titleTable = "books";
+        readonly String contentTable = "bible";
+        static string cname;
+        static int cnumber = 0, vnumber = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,23 +32,69 @@ namespace Sac_3._0_prototype.Models
         {
             try
             {
-                string cname = arr[0];
-                int cnumber = int.Parse(arr[1]);
-                int vnumber = int.Parse(arr[2]);
-                string mycon = "server =localhost; Uid=root; password =Chris123# ; persistsecurityinfo = True; database =englishbible; SslMode = none";
-                MySqlConnection con = new MySqlConnection(mycon);
-                MySqlCommand cmd = null;
+                cname = arr[0];
+                MySqlConnection con;
+                MySqlCommand bookname = null;
+                MySqlCommand currentbookid = null;
+                MySqlCommand currentchapter = null;
+                MySqlCommand currentverse = null;
                 string result = null;
-                MySqlCommand cmdd = null;
+                MySqlCommand bibleverse = null;
                 string result1 = null;
+                int bnumber = 0;
                 try
                 {
-                    string query1 = "Select verse from bible where bookid=1 and chapternumber='" + cnumber + "'and versenumber='" + vnumber + "'";
-                    cmd = new MySqlCommand("Select bookname from books where bookid=1", con);
-                    cmdd = new MySqlCommand(query1, con);
+                    con = new MySqlConnection(SQLServerSettings.GetConnectionString(dbName));
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert(SQL Connection Failed : '" + ex.Message + "')</script>");
+                    return;
+                }
+                try
+                {
                     con.Open();
-                    result = (string)cmd.ExecuteScalar();
-                    result1 = (string)cmdd.ExecuteScalar();
+                    string bookidquery = "Select bookid from " + titleTable + " where bookshortname ='" + cname + "'";
+                    currentbookid = new MySqlCommand(bookidquery, con);
+                    Object bookidobject = currentbookid.ExecuteScalar();
+                    if (bookidobject != null)
+                    {
+                        bnumber = Convert.ToInt32(bookidobject.ToString());
+                    }
+                    else
+                    {
+                        throw (new Exception("Book not found : " + cname));
+                    }
+                    string chapterquery = "Select chapternumber from " + contentTable + " where bookid=" + bnumber + " and chapternumber =" + arr[1] + " and versenumber=1";
+                    currentchapter = new MySqlCommand(chapterquery, con);
+                    Object chapterobject = currentchapter.ExecuteScalar();
+                    if (chapterobject != null)
+                    {
+                        cnumber = int.Parse(arr[1]);
+                    }
+                    else
+                    {
+                        throw (new Exception("Chapter not found : " + arr[1]));
+                    }
+                    string versequery = "Select versenumber from " + contentTable + " where bookid=" + bnumber + " and chapternumber =" + cnumber + " and versenumber=" + arr[2];
+                    currentverse = new MySqlCommand(versequery, con);
+                    Object verseobject = currentverse.ExecuteScalar();
+                    if (verseobject != null)
+                    {
+                        vnumber = int.Parse(arr[2]);
+                    }
+                    else
+                    {
+                        throw (new Exception("Verse not found : " + arr[2]));
+                    }
+                    string booknamequery = "Select bookname from " + titleTable + " where bookid=" + bnumber;
+                    bookname = new MySqlCommand(booknamequery, con);
+                    object booknameobject = bookname.ExecuteScalar();
+                    string versecontentquery = "Select verse from " + contentTable + " where bookid=" + bnumber + " and chapternumber=" + cnumber + " and versenumber=" + vnumber;
+                    bibleverse = new MySqlCommand(versecontentquery, con);
+                    object bibleverseobject = bibleverse.ExecuteScalar();
+                    result = booknameobject.ToString();
+                    result1 = bibleverseobject.ToString();
                     header.Text = result + ":" + cnumber + ":" + vnumber;
                     message.Text = result1;
                     con.Close();
@@ -58,8 +109,6 @@ namespace Sac_3._0_prototype.Models
             {
                 Response.Write("<script>alert('" + ex.Message + "')</script>");
             }
-            { }
-
         }
 
         protected void ButtonIN_Click(object sender, EventArgs e)
@@ -68,52 +117,55 @@ namespace Sac_3._0_prototype.Models
             string[] textSplit = bverse.Split('.');
             Bversefunction(textSplit);
         }
-    }
-}
-
-
-namespace AzureMySqlExample
-{
-    class MySqlRead
-    {
-        static async Task Main(string[] args)
+        protected void Next_Verse(object sender, EventArgs e)
         {
-            var builder = new MySqlConnectionStringBuilder
-            {
-                Server = "YOUR-SERVER.mysql.database.azure.com",
-                Database = "YOUR-DATABASE",
-                UserID = "USER@YOUR-SERVER",
-                Password = "PASSWORD",
-                SslMode = MySqlSslMode.Required,
-            };
-
-            using (var conn = new MySqlConnection(builder.ConnectionString))
-            {
-                Console.WriteLine("Opening connection");
-                await conn.OpenAsync();
-
-                using (var command = conn.CreateCommand())
-                {
-                    command.CommandText = "SELECT * FROM inventory;";
-
-                    using (var reader = await command.ExecuteReaderAsync())
-                    {
-                        while (await reader.ReadAsync())
-                        {
-                            Console.WriteLine(string.Format(
-                                "Reading from table=({0}, {1}, {2})",
-                                reader.GetInt32(0),
-                                reader.GetString(1),
-                                reader.GetInt32(2)));
-                        }
-                    }
-                }
-
-                Console.WriteLine("Closing connection");
-            }
-
-            Console.WriteLine("Press RETURN to exit");
-            Console.ReadLine();
+            vnumber += 1;
+            string[] textSplit = { cname, cnumber.ToString(), vnumber.ToString() };
+            Bversefunction(textSplit);
         }
+        protected void Prev_Verse(object sender, EventArgs e)
+        {
+            try
+            {
+                vnumber -= 1;
+                if (vnumber <= 0)
+                {
+                    vnumber = 1;
+                    throw (new Exception("Verse not found : "));
+                }
+                string[] textSplit = { cname, cnumber.ToString(), vnumber.ToString() };
+                Bversefunction(textSplit);
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
+            }
+        }
+        protected void Next_Chapter(object sender, EventArgs e)
+        {
+            cnumber += 1;
+            string[] textSplit = { cname, cnumber.ToString(), vnumber.ToString() };
+            Bversefunction(textSplit);
+        }
+        protected void Prev_Chapter(object sender, EventArgs e)
+        {
+            try
+            {
+                cnumber -= 1;
+                if (cnumber <= 0)
+                {
+                    cnumber = 1;
+                    throw (new Exception("Chapter not found : "));
+                }
+                string[] textSplit = { cname, cnumber.ToString(), vnumber.ToString() };
+                Bversefunction(textSplit);
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
+            }
+        }
+
+
     }
 }

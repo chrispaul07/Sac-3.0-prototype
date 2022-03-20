@@ -33,12 +33,12 @@ namespace Sac_3._0_prototype.Models
             {
                 cname = arr[0];
                 MySqlConnection con;
-                MySqlCommand cmd = null;
+                MySqlCommand bookname = null;
                 MySqlCommand currentbookid = null;
                 MySqlCommand currentchapter = null;
                 MySqlCommand currentverse = null;
                 string result = null;
-                MySqlCommand cmdd = null;
+                MySqlCommand bibleverse = null;
                 string result1 = null;
                 int bnumber = 0;
                 try
@@ -53,21 +53,21 @@ namespace Sac_3._0_prototype.Models
                 try
                 {
                     con.Open();
-                    string query = "Select bookid from "+ titleTable + " where bookshortname ='" + cname + "'";
-                    currentbookid = new MySqlCommand(query,con);
-                    Object obj = currentbookid.ExecuteScalar();
-                    if (obj != null)
+                    string bookidquery = "Select bookid from "+ titleTable + " where bookshortname ='" + cname + "'";
+                    currentbookid = new MySqlCommand(bookidquery,con);
+                    Object bookidobject = currentbookid.ExecuteScalar();
+                    if (bookidobject != null)
                     {
-                        bnumber = Convert.ToInt32(obj.ToString());
+                        bnumber = Convert.ToInt32(bookidobject.ToString());
                     }
                     else
                     {
                         throw (new Exception("Book not found : "+ cname));
                     }
-                    string query2 = "Select chapternumber from "+ contentTable +" where bookid=" + bnumber + " and chapternumber =" + arr[1] + " and versenumber=1";
-                    currentchapter = new MySqlCommand(query2, con);
-                    Object obj2 = currentchapter.ExecuteScalar();
-                    if (obj2 != null)
+                    string chapterquery = "Select chapternumber from "+ contentTable +" where bookid=" + bnumber + " and chapternumber =" + arr[1] + " and versenumber=1";
+                    currentchapter = new MySqlCommand(chapterquery, con);
+                    Object chapterobject = currentchapter.ExecuteScalar();
+                    if (chapterobject != null)
                     {
                         cnumber = int.Parse(arr[1]);
                     }
@@ -75,10 +75,10 @@ namespace Sac_3._0_prototype.Models
                     {
                         throw (new Exception("Chapter not found : " + arr[1]));
                     }
-                    string query3 = "Select versenumber from " + contentTable + " where bookid=" + bnumber + " and chapternumber =" + cnumber + " and versenumber=" + arr[2];
-                    currentverse = new MySqlCommand(query3, con);
-                    Object obj3 = currentverse.ExecuteScalar();
-                    if (obj3 != null)
+                    string versequery = "Select versenumber from " + contentTable + " where bookid=" + bnumber + " and chapternumber =" + cnumber + " and versenumber=" + arr[2];
+                    currentverse = new MySqlCommand(versequery, con);
+                    Object verseobject = currentverse.ExecuteScalar();
+                    if (verseobject != null)
                     {
                         vnumber = int.Parse(arr[2]);
                     }
@@ -86,11 +86,14 @@ namespace Sac_3._0_prototype.Models
                     {
                         throw (new Exception("Verse not found : " + arr[2]));
                     }
-                    string query1 = "Select verse from " + contentTable + " where bookid="+ bnumber + " and chapternumber=" + cnumber + " and versenumber=" + vnumber;
-                    cmd = new MySqlCommand("Select bookname from " + titleTable + " where bookid="+ bnumber, con);
-                    cmdd = new MySqlCommand(query1, con);
-                    result = (string)cmd.ExecuteScalar();
-                    result1 = (string)cmdd.ExecuteScalar();
+                    string booknamequery = "Select bookname from " + titleTable + " where bookid=" + bnumber;
+                    bookname = new MySqlCommand(booknamequery, con);
+                    object booknameobject = bookname.ExecuteScalar();
+                    string versecontentquery = "Select verse from " + contentTable + " where bookid="+ bnumber + " and chapternumber=" + cnumber + " and versenumber=" + vnumber;
+                    bibleverse = new MySqlCommand(versecontentquery, con);
+                    object bibleverseobject = bibleverse.ExecuteScalar();
+                    result = booknameobject.ToString();
+                    result1 = bibleverseobject.ToString();
                     header.Text = result + ":" + cnumber + ":" + vnumber;
                     message.Text = result1;
                     con.Close();

@@ -47,13 +47,13 @@
             </p>
         <div class="text">
             <asp:TextBox ID="TextBox" runat="server" ></asp:TextBox>
-            <asp:Button ID="Button7" runat="server" Text="Submit1" OnClick="ButtonIN_Click" ></asp:Button>
+            <asp:Button ID="Button7" runat="server" Text="Get Verse" OnClick="ButtonIN_Click" ></asp:Button>
         </div>
         <div class="all_btn" >
-            <asp:Button ID="Button1" runat="server" Text="+" />
-            <asp:Button ID="Button2" runat="server" Text="-" />
-            <asp:Button ID="Button3" runat="server" Text="*" />
-            <asp:Button ID="Button4" runat="server" Text="/" />
+            <asp:Button ID="Button1" runat="server" Text="+" onClick="Next_Verse"/>
+            <asp:Button ID="Button2" runat="server" Text="-" onClick="Prev_Verse"/>
+            <asp:Button ID="Button3" runat="server" Text="*" onClick="Next_Chapter"/>
+            <asp:Button ID="Button4" runat="server" Text="/" onClick="Prev_Chapter"/>
             <asp:Button ID="Button5" runat="server" Text="[" />
             <asp:Button ID="Button6" runat="server" Text="]" />
 
