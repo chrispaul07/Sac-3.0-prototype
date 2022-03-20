@@ -96,12 +96,10 @@
             <li><asp:TextBox ID="TextBox" runat="server" Width="109px" ></asp:TextBox><br />
                     <asp:Button ID="Button7" runat="server" Text="Get Verse" OnClick="ButtonIN_Click" Width="121px" ></asp:Button><br />
                     <div class ="all_btn">
-                    <asp:Button ID="Button1" runat="server" Text="+" />
-                    <asp:Button ID="Button2" runat="server" Text="-" />
-                    <asp:Button ID="Button3" runat="server" Text="*" />
-                    <asp:Button ID="Button4" runat="server" Text="/" />
-                    <asp:Button ID="Button5" runat="server" Text="[" />
-                    <asp:Button ID="Button6" runat="server" Text="]" />
+                    <asp:Button ID="Button1" runat="server" Text="+" OnClick="Next_Verse"/>
+                    <asp:Button ID="Button2" runat="server" Text="-" OnClick="Prev_Verse"/>
+                    <asp:Button ID="Button3" runat="server" Text="*" OnClick="Next_Chapter"/>
+                    <asp:Button ID="Button4" runat="server" Text="/" OnClick="Prev_Chapter"/>
                     </div></li>
         </ul>
         <%--<table width="110%"class="headertable">

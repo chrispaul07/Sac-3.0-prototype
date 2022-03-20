@@ -50,11 +50,13 @@ namespace Sac_3._0_prototype.Models
             {
                 con.Open();
                 stanzaNumber = 1;
-                songcheck = new MySqlCommand("Select songnumber from " + titleTable + "where songnumber=" + songNumber, con);
+                songcheck = new MySqlCommand("Select songnumber from " + titleTable + " where songnumber=" + songNumber, con);
                 stanzacheck = new MySqlCommand("Select stanzanumber from " + contentTable + " where songnumber=" + songNumber + " and stanzanumber=" + stanzaNumber, con);
-                query1 = new MySqlCommand("Select songname from " + titleTable +"where songnumber=" + songNumber , con);
+                query1 = new MySqlCommand("Select songname from " + titleTable +" where songnumber=" + songNumber , con);
                 query2 = new MySqlCommand("Select para from " + contentTable + " where songnumber=" + songNumber + " and stanzanumber="+stanzaNumber, con);
-                int otitlename = (int)songcheck.ExecuteScalar();
+                object obj1 = songcheck.ExecuteScalar();
+                
+                int otitlename = Convert.ToInt32(obj1);
                 int osongcontent = (int)stanzacheck.ExecuteScalar();
                 if (otitlename == songNumber && osongcontent == stanzaNumber)
                 {
