@@ -229,6 +229,7 @@
     <Content Include="Models\englishbible.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\Sac30-prototype - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Sacv3-prototype - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
