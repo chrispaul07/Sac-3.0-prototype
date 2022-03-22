@@ -1,0 +1,14 @@
+Slide 1 - Project Details
+Slide 2 - What is this project about?
+Slide 3 - Why updation?
+Slide 4 - Current Trend
+Slide 5 - Tools used
+Slide 6 - Difference between SAC 2.4 and 3.0
+Slide 7 - Web App vs Software package
+Slide 8 - Front end Design
+Slide 9 - Unicode vs Font
+Slide 10 - Better Database Structure
+Slide 11 - Only a part of the software has been upgraded....
+Slide 12-13 - Left out features of SAC 2.4.....
+Slide 14 - Future Scope
+Slide 15-17 - Conclusion and Thank You slide...
