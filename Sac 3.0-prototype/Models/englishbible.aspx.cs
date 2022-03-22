@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.Threading.Tasks;
 using MySqlConnector;
 
 namespace Sac_3._0_prototype.Models
@@ -111,7 +105,7 @@ namespace Sac_3._0_prototype.Models
             }
         }
 
-        protected void ButtonIN_Click(object sender, EventArgs e)
+        protected void Get_Verse(object sender, EventArgs e)
         {
             string bverse = TextBox.Text;
             string[] textSplit = bverse.Split('.');

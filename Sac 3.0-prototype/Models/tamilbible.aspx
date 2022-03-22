@@ -91,35 +91,17 @@
 <body scroll="no" style=" height: 651px; width: 1356px; color: #000000; position: relative;background-color: #CCCCCC; ">
     <form id="form1" runat="server">
     <div>
-        <ul class="header">
-            <li>வேத வசனம்</li>
+        <ul class="header navbar">
+            <li><h3>வேத வசனம்</h3></li>
             <li><asp:TextBox ID="TextBox" runat="server" Width="109px" ></asp:TextBox><br />
-                    <asp:Button ID="Button7" runat="server" Text="Get Verse" OnClick="ButtonIN_Click" Width="121px" ></asp:Button><br />
+                    <asp:Button ID="Button7" runat="server" Text="Get Verse" OnClick="Get_Verse" Width="121px" ></asp:Button><br />
                     <div class ="all_btn">
                     <asp:Button ID="Button1" runat="server" Text="+" OnClick="Next_Verse"/>
                     <asp:Button ID="Button2" runat="server" Text="-" OnClick="Prev_Verse"/>
                     <asp:Button ID="Button3" runat="server" Text="*" OnClick="Next_Chapter"/>
                     <asp:Button ID="Button4" runat="server" Text="/" OnClick="Prev_Chapter"/>
                     </div></li>
-        </ul>
-        <%--<table width="110%"class="headertable">
-            <tr class="header">
-                <td width="25%">&nbsp;</td>
-                <td width="50%"><h2 style="text-align:center;" class="auto-style1"><strong>வேத வசனம்</strong></h2></td>
-                <td width="25%">
-                    <asp:TextBox ID="TextBox" runat="server" Width="109px" ></asp:TextBox><br />
-                    <asp:Button ID="Button7" runat="server" Text="Get Verse" OnClick="ButtonIN_Click" Width="121px" ></asp:Button><br />
-                    <div class ="all_btn">
-                    <asp:Button ID="Button1" runat="server" Text="+" />
-                    <asp:Button ID="Button2" runat="server" Text="-" />
-                    <asp:Button ID="Button3" runat="server" Text="*" />
-                    <asp:Button ID="Button4" runat="server" Text="/" />
-                    <asp:Button ID="Button5" runat="server" Text="[" />
-                    <asp:Button ID="Button6" runat="server" Text="]" />
-                    </div>
-                </td>
-            </tr>
-        </table>--%>    
+        </ul>    
         <table>
              <tr>
                 <td width="100%" class="container">

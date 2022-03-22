@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 using MySql.Data.MySqlClient;
-using System.Configuration;
 
 namespace Sac_3._0_prototype.Models
 {
@@ -98,7 +92,7 @@ namespace Sac_3._0_prototype.Models
             }
 
      
-        protected void ButtonIN_Click(object sender, EventArgs e)
+        protected void Get_Song(object sender, EventArgs e)
         {
             string songnum = TextBox.Text;
             string stanzanum = "1";

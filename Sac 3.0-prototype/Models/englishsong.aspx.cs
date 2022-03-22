@@ -97,7 +97,7 @@ namespace Sac_3._0_prototype.Models
         }
 
 
-        protected void ButtonIN_Click(object sender, EventArgs e)
+        protected void Get_Song(object sender, EventArgs e)
         {
             string songnum = TextBox.Text;
             string stanzanum = "1";
